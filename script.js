@@ -44,16 +44,15 @@ document.querySelector('.btn--hold').addEventListener('click', function(){
     if (gamingPlaying){
         // Add current score to Global score
         scores[activePlayer]+= roundScore;
-        let playerNumber = activePlayer+1;
         //  Update the UI
         document.querySelector('#score--' + activePlayer).textContent = scores[activePlayer];
         let input = document.querySelector('.finalScore').value;
 
         if (input){
-            winningScore = input;
+            winScore = input;
         }
         else {
-            winningScore = 20
+            winScore = 40;
         }
 
 
@@ -100,8 +99,7 @@ function init(){
     winScore= 30;
 
     diceDom.style.display = 'none';
-    document.querySelector('.btn--roll').style.display= 'block';
-    document.querySelector('.btn--hold').style.display= 'block';
+    document.querySelector('.finalScore').textContent = 0;
     document.getElementById('score--0').textContent = 0;
     document.getElementById('score--1').textContent = 0;
     document.getElementById('current--0').textContent = 0;
@@ -111,9 +109,6 @@ function init(){
     document.querySelector('.player--0').classList.remove('player--winner');
     document.querySelector('.player--1').classList.remove('player--winner');
     document.querySelector('.player--1').classList.remove('player--active');
+    document.querySelector('.player--1').classList.remove('player--winner');
     document.querySelector('.player--0').classList.add('player--active');
 }
-
-
-
-
